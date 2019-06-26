@@ -2,6 +2,7 @@ package packageName.spring.circuit.breaker
 
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.remoting.RemoteAccessException
 import org.springframework.retry.annotation.CircuitBreaker
 import org.springframework.retry.annotation.Recover
 import org.springframework.stereotype.Service
@@ -21,7 +22,7 @@ class SpringExternalCircuitBreakerService @Autowired constructor(private val log
     fun run(): String {
         logger.info("Calling external service...")
         if (Math.random() > 0.5) {
-            throw RuntimeException("Something was wrong...")
+            throw RemoteAccessException("Something was wrong...")
         }
         logger.info("Success calling external service")
         return "Success calling external service"

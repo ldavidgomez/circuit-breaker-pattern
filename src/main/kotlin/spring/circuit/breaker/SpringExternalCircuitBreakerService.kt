@@ -14,6 +14,10 @@ class SpringExternalCircuitBreakerService @Autowired constructor(private val log
 
     /**
      * Annotated with maxAttempts = 3 for test.
+     * maxAttempts - Max attempts before starting calling the @Recover method annotated
+     * openTimeout - If the maxAttemps fails inside this timeout, the recover method starts to been called.
+     * resetTimeout - If the circuit is open after this timeout, the next call will be to the system to gives the chance to return.
+     *
      * After throw an Exceptions, the next calls goes direct to fallback_run() method.
      *
      * @return

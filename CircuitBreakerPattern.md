@@ -103,7 +103,7 @@ Este patrón proporciona estabilidad y resistencia a nuestras aplicaciones, ayud
 
 Es necesario indicar aquí también, al igual que hicimos al hablar del [patrón Retry], que es altamente recomendable guardar un registro de las operaciones fallidas ya que es una información de gran utilidad para ayudar a dimensionar correctamente las infraestructuras de un proyecto y a encontrar errores recurrentes y silenciados por la gestión de errores de la aplicación.
 
-Po
+Podéis encontrar los ejemplos completos tratados en este artículo en nuestro [github].
 
 ### <a id="source-code"></a>
 

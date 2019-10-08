@@ -11,7 +11,7 @@ Aquí entra en juego el patrón Circuit Breaker.
 
 El patrón Circuit Breaker evita que una aplicación intente de manera reiterada una operación que con probabilidad vaya a fallar, permitiendo que esta continúe con su ejecución sin malgastar recursos mientras el problema no se resuelva. Además este patrón puede detectar cuando se ha resuelto el problema permitiendo de esta manera volver a ejecutar la operación comprometida. Podemos entender este patrón como un proxy entre nuestra aplicación y el servicio remoto que se implementa como si fuera una máquina de estados que imita el comportamiento de un interruptor de un circuito eléctrico.
 
-__Los estado son los siguientes__:
+__Los estado__:
 
 * **Closed**: El circuito está cerrado y el flujo fluye ininterrumpidamente. Este es el estado inicial, todo funciona bien, la aplicación funciona de la manera esperada y la llamada al recurso/servicio se realiza de manera normal. 
 
@@ -19,7 +19,7 @@ __Los estado son los siguientes__:
 
 * **Half-Open**:  El circuito está medio abierto (o medio cerrado) dando una oportunidad al flujo para su restauración. En este estado la aplicación volverá a intentar realizar la petición al servicio/recurso que fallaba.  
 
-__Como funcionan los cambios de estado__:
+__Los cambios de estado__:
 
 Como ya hemos comentado el estado inicial es **Closed**. El proxy mantiene un contador con el número de errores que se producen al realizar la llamada, si el número de errores excede el límite especificado por configuración el proxy establece el estado a **Open**. Además, esto punto es muy importante, 
 al mismo tiempo se inicia un **temporizador** 

@@ -31,8 +31,8 @@ Cuando el **temporizador** concluye su ciclo el estado pasa a ser **Half-Open**.
 * Si la petición funciona correctamente se asume que el error se ha corregido, se restablece a cero el contador de errores y se establece el estado del proxy a **Closed** de nuevo. Todo vuelve a funcionar correctamente. 
 
 * Si por lo contrario se produce algún error en la petición se asume que el error continua, se establece de nuevo el estado a **Open** y se reinicia el **temporizador**. El servicio/recurso sigue siendo inaccesible.
-
-
+  
+  
 <p align="center">
   <img src="https://raw.githubusercontent.com/ldavidgomez/circuit-breaker-pattern/master/circuit_breaker_flow.png">
 </p>

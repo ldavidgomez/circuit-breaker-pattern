@@ -42,7 +42,7 @@ class CircuitBreaker @Autowired constructor(private val logger: LoggerWrapper) {
         if (state == CircuitBreakerState.CLOSED) {
             try {
                 action.invoke()
-                resetCircuit()
+                closeCircuit()
                 logger.info("Success calling external service")
             } catch (ex: Exception) {
                 handleException(ex)
@@ -58,7 +58,7 @@ class CircuitBreaker @Autowired constructor(private val logger: LoggerWrapper) {
                 try {
                     action.invoke()
                     logger.info("Success when HALF_OPEN")
-                    resetCircuit()
+                    closeCircuit()
                 } catch (ex: Exception) {
                     logger.info("Fails when HALF_OPEN")
                     openCircuit(ex)
@@ -80,7 +80,7 @@ class CircuitBreaker @Autowired constructor(private val logger: LoggerWrapper) {
         logger.error("Opening circuit...")
     }
 
-    private fun resetCircuit() {
+    private fun closeCircuit() {
         errorsCount.set(0)
         lastExceptionThrown = null
         state = CircuitBreakerState.CLOSED

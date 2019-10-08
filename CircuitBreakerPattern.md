@@ -21,7 +21,7 @@ __Los estados__:
 
 __Los cambios de estado__:
 
-Como ya hemos comentado el estado inicial es **Closed**. El proxy mantiene un contador con el número de errores que se producen al realizar la llamada, si el número de errores excede el límite especificado por configuración el proxy establece el estado a **Open**. Además, esto punto es muy importante, 
+Como ya hemos comentado el estado inicial es **Closed**. El proxy mantiene un contador con el número de errores que se producen al realizar la llamada, si el número de errores excede el límite especificado por configuración el proxy establece el estado a **Open**. Además, __este punto es muy importante__, 
 al mismo tiempo se inicia un **temporizador** 
 
 Mientras el estado sea **Open** las llamadas al servicio no se realizarán, devolviendo de manera automática el último error conocido. El tiempo en que el proxy permanece en este estado lo marca la configuración del **temporizador**
